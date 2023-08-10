@@ -99,7 +99,7 @@ class PCB {
     //   process.resumeInstructionAddress = previousProcess ? previousProcess.resumeInstructionAddress + previousProcess.noOfInstructions : 0;
   
 
-            // Rest of the code remains the same
+           
             console.log(`  \n  `);
             console.log(`Executing ${process.processId} for ${timeSlice} units of time.`);      
             console.log(`  Process ID: ${process.processId}`);
