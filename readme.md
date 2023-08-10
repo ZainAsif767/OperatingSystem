@@ -2,6 +2,10 @@
 
 This repository contains a simple simulation of the Round Robin scheduling algorithm for a set of processes.
 
+
+https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4322-bf98-84970fb75714
+
+
 ## How It Works
 
 1. **Creating Processes**: Run the program and input the number of processes you want to create (between 3 and 5). For each process, provide its arrival time and execution time.
