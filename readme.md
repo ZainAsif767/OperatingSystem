@@ -22,9 +22,9 @@ This repository contains a simple simulation of the Round Robin scheduling algor
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/round-robin-scheduling.git`
-2. Navigate to the project directory: `cd round-robin-scheduling`
-3. Run the simulation: `node scheduler.js`
+1. Clone the repository: `https://github.com/umershaikh123/OperatingSystem.git`
+2. Navigate to the project directory: `cd OperatingSystem`
+3. Run the simulation: `node .\roundRobin.js`
 
 ## Contributions
 
