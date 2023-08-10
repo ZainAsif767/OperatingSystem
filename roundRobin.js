@@ -1,5 +1,5 @@
  
-// Define a class to represent a Process Control Block (PCB)
+// A class to represent a Process Control Block (PCB)
 class PCB {
     constructor(processId, arrivalTime, executionTime) {
       this.processId = processId;
@@ -90,16 +90,15 @@ class PCB {
       const process = queue.shift();
       const timeSlice = Math.min(process.remainingTime, process.quantumSize);
   
-      // Initialize the resumeInstructionAddress for the first process
+  
       currentTime += timeSlice;
       process.utilizationTime += timeSlice;
       process.remainingTime -= timeSlice;
       process.resumeInstructionAddress += process.noOfInstructions;
-    //   const previousProcess = queue[queue.length - 1]; // Get the previous process in the queue
-    //   process.resumeInstructionAddress = previousProcess ? previousProcess.resumeInstructionAddress + previousProcess.noOfInstructions : 0;
+ 
   
 
-            // Rest of the code remains the same
+          
             console.log(`  \n  `);
             console.log(`Executing ${process.processId} for ${timeSlice} units of time.`);      
             console.log(`  Process ID: ${process.processId}`);
@@ -128,16 +127,7 @@ class PCB {
                 // Place the process back in the queue
                 queue.push(process);
               }
-
-    //   if (process.remainingTime > 0) {
-    //     queue.push(process);
-    //   } else {
-    //     process.finishTime = currentTime + timeSlice;
-    //     process.turnAroundTime = process.finishTime - process.arrivalTime;
-    //     console.log(`${process.processId} has completed execution.`);
-    //   }
   
-    //   currentTime += timeSlice;
     }
   
     console.log('All processes have completed execution.');
