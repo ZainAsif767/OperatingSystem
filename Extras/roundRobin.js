@@ -117,8 +117,7 @@ function startScheduling(processes) {
 
 
       console.log(`  \n  `);
-      //   console.log(`  Resume Intruction: ${process.instructionRegister}`);
-      // console.log(`  Instruction Register: ${process.instructionRegister}`);
+ 
         console.log(`  Number of Instructions: ${process.noOfInstructions}`);
         console.log(`  Process State: ${process.state}`);
         console.log(`  Quantum Size: ${process.quantumSize}`);

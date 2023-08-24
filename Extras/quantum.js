@@ -22,6 +22,8 @@ class PCB {
   }
 }
 
+
+
 function createProcesses() {
   const readline = require('readline');
   const rl = readline.createInterface({
@@ -29,38 +31,38 @@ function createProcesses() {
     output: process.stdout
   });
 
-  rl.question('How many processes do you want to create? (3-5): ', (numProcesses) => {
-    numProcesses = parseInt(numProcesses);
-    if (numProcesses < 3 || numProcesses > 5) {
-      console.log('Number of processes must be between 3 and 5.');
+  rl.question('Enter quantum size (2-3): ', (quantumSize) => {
+    quantumSize = parseInt(quantumSize);
+    if (quantumSize < 2 || quantumSize > 3) {
+      console.log('Quantum size must be between 2 and 3.');
       rl.close();
       return;
     }
 
-    const processes = [];
-    let processCount = 1;
+    rl.question('How many processes do you want to create? (3-5): ', (numProcesses) => {
+      numProcesses = parseInt(numProcesses);
+      if (numProcesses < 3 || numProcesses > 5) {
+        console.log('Number of processes must be between 3 and 5.');
+        rl.close();
+        return;
+      }
 
-    function createProcess() {
-      rl.question(`Enter arrival time for Process P${processCount}: `, (arrivalTime) => {
-        arrivalTime = parseInt(arrivalTime);
-        rl.question(`Enter execution time for Process P${processCount} (<= 10): `, (executionTime) => {
-          executionTime = parseInt(executionTime);
-          if (executionTime > 10) {
-            console.log('Execution time must be less than or equal to 10.');
-            rl.close();
-            return;
-          }
+      const processes = [];
+      let processCount = 1;
 
-          rl.question(`Enter resource request for Process P${processCount} (true/false): `, (resourceRequest) => {
-            resourceRequest = resourceRequest.toLowerCase() === 'true';
+      function createProcess() {
+        rl.question(`Enter arrival time for Process P${processCount}: `, (arrivalTime) => {
+          arrivalTime = parseInt(arrivalTime);
+          rl.question(`Enter execution time for Process P${processCount} (<= 10): `, (executionTime) => {
+            executionTime = parseInt(executionTime);
+            if (executionTime > 10) {
+              console.log('Execution time must be less than or equal to 10.');
+              rl.close();
+              return;
+            }
 
-            rl.question(`Enter quantum size for Process P${processCount} (2-4): `, (quantumSize) => {
-              quantumSize = parseInt(quantumSize);
-              if (quantumSize < 2 || quantumSize > 4) {
-                console.log('Quantum size must be between 2 and 4.');
-                rl.close();
-                return;
-              }
+            rl.question(`Enter resource request for Process P${processCount} (true/false): `, (resourceRequest) => {
+              resourceRequest = resourceRequest.toLowerCase() === 'true';
 
               const process = new PCB(`P${processCount}`, arrivalTime, executionTime, resourceRequest);
               process.quantumSize = quantumSize;
@@ -76,12 +78,13 @@ function createProcesses() {
             });
           });
         });
-      });
-    }
+      }
 
-    createProcess();
+      createProcess();
+    });
   });
 }
+
 
 function startScheduling(processes) {
   const queue = [...processes];
@@ -110,6 +113,7 @@ function startScheduling(processes) {
       process.state = 'Blocked';
     } else {
       process.state = 'Running';
+      
       for (let i = 0; i < timeSlice; i++) {
         if (process.programCounter < process.instructions.length) {
           const currentInstructionIndex = process.programCounter;
@@ -136,11 +140,9 @@ function startScheduling(processes) {
  
         console.log(`  Number of Instructions: ${process.noOfInstructions}`);
         console.log(`  Process State: ${process.state}`);
-        console.log(`  Quantum Size: ${process.quantumSize}`);
         console.log(`  Arrival Time: ${process.arrivalTime}`);
         console.log(`  Total Execution Time: ${process.executionTime}`);
         console.log(`  Remaining Time: ${process.remainingTime}`);
-        console.log(`  Quantum Size: ${process.quantumSize}`);
         console.log(`  Turnaround Time: ${process.turnAroundTime}`);
         console.log(`  Utilization Time: ${process.utilizationTime}`);
         console.log(`  Current Time: ${currentTime} units.`);
