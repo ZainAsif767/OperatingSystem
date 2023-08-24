@@ -2,9 +2,7 @@
 
 This repository contains a simple simulation of the Round Robin scheduling algorithm for a set of processes.
 
-
 https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4322-bf98-84970fb75714
-
 
 ## How It Works
 
@@ -28,7 +26,7 @@ https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4
 
 1. Clone the repository: `https://github.com/umershaikh123/OperatingSystem.git`
 2. Navigate to the project directory: `cd OperatingSystem`
-3. Run the simulation: `node .\roundRobin.js`
+3. Run the simulation: `node .\Final.js`
 
 ## Contributions
 
