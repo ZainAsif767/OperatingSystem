@@ -3,7 +3,7 @@ class PCB {
         this.processId = processId;
         this.arrivalTime = arrivalTime;
         this.executionTime = executionTime;
-        this.quantumSize = 3; // Set quantum size
+        this.quantumSize = 0; // Set quantum size
         this.remainingTime = executionTime;
         this.resumeInstructionAddress = 0; // Initialize to start
         this.noOfInstructions = executionTime; // Assume each instruction takes half of execution time
@@ -37,6 +37,7 @@ class PCB {
       const processes = [];
       let processCount = 1;
   
+
       function createProcess() {
         rl.question(`Enter arrival time for Process P${processCount}: `, (arrivalTime) => {
           arrivalTime = parseInt(arrivalTime);
@@ -48,16 +49,26 @@ class PCB {
               return;
             }
   
-            const process = new PCB(`P${processCount}`, arrivalTime, executionTime);
-            processes.push(process);
+            rl.question(`Enter quantum size for Process P${processCount} (2-4): `, (quantumSize) => {
+              quantumSize = parseInt(quantumSize);
+              if (quantumSize < 2 || quantumSize > 4) {
+                console.log('Quantum size must be between 2 and 4.');
+                rl.close();
+                return;
+              }
   
-            processCount++;
-            if (processCount <= numProcesses) {
-              createProcess();
-            } else {
-              rl.close();
-              startScheduling(processes);
-            }
+              const process = new PCB(`P${processCount}`, arrivalTime, executionTime);
+              process.quantumSize = quantumSize;
+              processes.push(process);
+  
+              processCount++;
+              if (processCount <= numProcesses) {
+                createProcess();
+              } else {
+                rl.close();
+                startScheduling(processes);
+              }
+            });
           });
         });
       }
@@ -65,6 +76,38 @@ class PCB {
       createProcess();
     });
   }
+
+  //     function createProcess() {
+  //       rl.question(`Enter arrival time for Process P${processCount}: `, (arrivalTime) => {
+  //         arrivalTime = parseInt(arrivalTime);
+  //         rl.question(`Enter execution time for Process P${processCount} (<= 10): `, (executionTime) => {
+  //           executionTime = parseInt(executionTime);
+  //           if (executionTime > 10) {
+  //             console.log('Execution time must be less than or equal to 10.');
+  //             rl.close();
+  //             return;
+  //           }
+  
+
+  
+
+  //           const process = new PCB(`P${processCount}`, arrivalTime, executionTime);
+  //           processes.push(process);
+  
+  //           processCount++;
+  //           if (processCount <= numProcesses) {
+  //             createProcess();
+  //           } else {
+  //             rl.close();
+  //             startScheduling(processes);
+  //           }
+  //         });
+  //       });
+  //     }
+  
+  //     createProcess();
+  //   });
+  // }
   
   function startScheduling(processes) {
     const queue = [...processes];
@@ -120,6 +163,7 @@ for (let i = 0; i < timeSlice; i++) {
     // console.log(`  Instruction Register: ${process.instructionRegister}`);
       console.log(`  Number of Instructions: ${process.noOfInstructions}`);
       console.log(`  Process State: ${process.state}`);
+      console.log(`  Quantum Size: ${process.quantumSize}`);
       console.log(`  Arrival Time: ${process.arrivalTime}`);
       console.log(`  Total Execution Time: ${process.executionTime}`);
       console.log(`  Remaining Time: ${process.remainingTime}`);
