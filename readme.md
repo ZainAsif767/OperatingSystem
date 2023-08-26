@@ -24,7 +24,7 @@ https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4
 
 ## Getting Started
 
-1. Clone the repository: `https://github.com/umershaikh123/OperatingSystem.git`
+1. Clone the repository: `https://github.com/ZainAsif767/OperatingSystem.git`
 2. Navigate to the project directory: `cd OperatingSystem`
 3. Run the simulation: `node .\Final.js`
 
