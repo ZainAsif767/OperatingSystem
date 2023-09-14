@@ -6,6 +6,8 @@ https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4
 
 ## How It Works
 
+kkkk
+
 1. **Creating Processes**: Run the program and input the number of processes you want to create (between 3 and 5). For each process, provide its arrival time and execution time.
 
 2. **Sorting Processes**: The processes are sorted based on their arrival times. The process with the earliest arrival time is set to start execution first.
