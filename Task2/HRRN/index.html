@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highest Response Ratio Next Algorithm</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anime/3.2.1/anime.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Highest Response Ratio Next Algorithm</h1>
+       <!-- <label for="numProcesses">Number of Processes:</label>   -->
+      <form onsubmit="return getInput()">
+        <input type="number" id="numProcesses" min="1" step="1" placeholder="Number of Processes:" name="number" class="input" style="margin-right: 4px;">
+        <button type="submit" class="learn-more" >Submit</button>
+      </form>
+    <div id="processesInput" style="display:none;">
+      <h2>Enter Arrival and Burst Time for Each Process:</h2>
+      <table id="processTable">
+        <!-- The table will be dynamically generated here -->
+      </table>
+
+      <button onclick="calculateHRRN()" class="learn-more" style="margin-top: 14px; margin-bottom: 14px;">Calculate HRRN</button>
+      <button onclick="generateRandomValues()" class="learn-more2" >Generate Random Values</button>
+      <h2>HRRN Results:</h2>
+      <table id="hrrnTable">
+          <!-- HRRN results will be displayed here -->
+      </table>
+    </div>
+    <div id="metrics"></div>
+    <div id="visualization"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
