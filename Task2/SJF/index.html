@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortest Job First (SJF) Algorithm</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Shortest Job First (SJF) Algorithm</h1>
+ 
+    <form onsubmit="return getInput()">
+      <input type="number" id="numProcesses" min="1" step="1" placeholder="Number of Processes:" name="number" class="input" style="margin-right: 4px;">
+      <button type="submit" class="learn-more">Submit</button>
+    </form>
+    
+    
+  
+    <div id="processesInput" style="display:none;">
+      <h2>Enter Execution Time for Each Process:</h2>
+      <table id="processTable">
+     
+      </table>
+
+      <button onclick="calculateSJF()" class="learn-more"  style="margin-top: 14px; margin-bottom: 14px;">Calculate SJF</button>
+      <button onclick="generateRandomValues()" class="learn-more2" >Generate Random Values</button>
+      <h2>SJF Results:</h2>
+      <table id="sjfTable">
+          <!-- SJF results will be displayed here -->
+        </table>
+      
+    </div>
+    <div id="metrics"></div>
+    <div id="visualization"></div>
+  </div>
+ 
+
+  <script src="script.js"></script>
+</body>
+</html>
