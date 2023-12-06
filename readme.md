@@ -31,7 +31,3 @@ https://github.com/umershaikh123/OperatingSystem/assets/42178214/2fc26511-328f-4
 ## Contributions
 
 Contributions to this simulation are welcome! Feel free to fork this repository, make improvements, and submit pull requests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
